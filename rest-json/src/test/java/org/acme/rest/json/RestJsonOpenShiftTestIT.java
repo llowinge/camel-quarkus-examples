@@ -16,7 +16,7 @@
  */
 package org.acme.rest.json;
 
-import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.ts.openshift.common.OpenShiftTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -26,8 +26,8 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 /**
  * JVM mode tests.
  */
-@QuarkusTest
-public class RestJsonTest {
+@OpenShiftTest
+public class RestJsonOpenShiftTestIT {
 
     @Test
     public void fruits() {
