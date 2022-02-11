@@ -135,26 +135,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>net.revelc.code.formatter</groupId>
-                    <artifactId>formatter-maven-plugin</artifactId>
-                    <version>${formatter-maven-plugin.version}</version>
-                    <configuration>
-                        <configFile>${maven.multiModuleProjectDirectory}/eclipse-formatter-config.xml</configFile>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>net.revelc.code</groupId>
-                    <artifactId>impsort-maven-plugin</artifactId>
-                    <version>${impsort-maven-plugin.version}</version>
-                    <configuration>
-                        <groups>java.,javax.,org.w3c.,org.xml.,junit.</groups>
-                        <removeUnused>true</removeUnused>
-                        <staticAfter>true</staticAfter>
-                        <staticGroups>java.,javax.,org.w3c.,org.xml.,junit.</staticGroups>
-                    </configuration>
-                </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -199,34 +179,6 @@
                     <version>${maven-jar-plugin.version}</version>
                 </plugin>
 
-                <plugin>
-                    <groupId>com.mycila</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>${mycila-license.version}</version>
-                    <configuration>
-                        <failIfUnknown>true</failIfUnknown>
-                        <header>${maven.multiModuleProjectDirectory}/header.txt</header>
-                        <excludes>
-                            <exclude>**/*.adoc</exclude>
-                            <exclude>**/*.txt</exclude>
-                            <exclude>**/LICENSE.txt</exclude>
-                            <exclude>**/LICENSE</exclude>
-                            <exclude>**/NOTICE.txt</exclude>
-                            <exclude>**/NOTICE</exclude>
-                            <exclude>**/README</exclude>
-                            <exclude>**/pom.xml.versionsBackup</exclude>
-                        </excludes>
-                        <mapping>
-                            <java>SLASHSTAR_STYLE</java>
-                            <properties>CAMEL_PROPERTIES_STYLE</properties>
-                            <Dockerfile.jvm>CAMEL_PROPERTIES_STYLE</Dockerfile.jvm>
-                            <Dockerfile.native>CAMEL_PROPERTIES_STYLE</Dockerfile.native>
-                        </mapping>
-                        <headerDefinitions>
-                            <headerDefinition>${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml</headerDefinition>
-                        </headerDefinitions>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -244,33 +196,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>net.revelc.code.formatter</groupId>
-                <artifactId>formatter-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>format</id>
-                        <goals>
-                            <goal>format</goal>
-                        </goals>
-                        <phase>process-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>net.revelc.code</groupId>
-                <artifactId>impsort-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>sort-imports</id>
-                        <goals>
-                            <goal>sort</goal>
-                        </goals>
-                        <phase>process-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
