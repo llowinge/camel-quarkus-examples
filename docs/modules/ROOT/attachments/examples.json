@@ -1,5 +1,10 @@
 [
   {
+    "title": "Cluster leader election",
+    "description": "An example that shows how to use camel master component.",
+    "link": "https://github.com/apache/camel-quarkus-examples/tree/main/cluster-leader-election"
+  },
+  {
     "title": "Connecting to a JDBC DataSource",
     "description": "Shows how to connect to a Database using Datastores.",
     "link": "https://github.com/apache/camel-quarkus-examples/tree/main/jdbc-datasource"
