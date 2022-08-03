@@ -27,14 +27,14 @@ services:
       - "14250"
 
   # Collector
-  otel-collector:
-    image: otel/opentelemetry-collector:0.50.0
-    command: [ "--config=/etc/otel-collector-config.yaml" ]
-    volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
-    ports:
-      - "13133:13133" # Health_check extension
-      - "4317:4317"   # OTLP gRPC receiver
-      - "55680:55680" # OTLP gRPC receiver alternative port
-    depends_on:
-      - jaeger-all-in-one
+#  otel-collector:
+#    image: otel/opentelemetry-collector:0.50.0
+#    command: [ "--config=/etc/otel-collector-config.yaml" ]
+#    volumes:
+#      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+#    ports:
+#      - "13133:13133" # Health_check extension
+#      - "4317:4317"   # OTLP gRPC receiver
+#      - "55680:55680" # OTLP gRPC receiver alternative port
+#    depends_on:
+#      - jaeger-all-in-one
