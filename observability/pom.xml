@@ -81,6 +81,12 @@
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
             <artifactId>camel-quarkus-platform-http</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.aayushatharva.brotli4j</groupId>
+                    <artifactId>native-osx-x86_64</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
@@ -421,6 +427,20 @@
                 <dependency>
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-openshift</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>jaeger</id>
+            <activation>
+                <property>
+                    <name>jaeger-profile</name>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-opentelemetry-exporter-jaeger</artifactId>
                 </dependency>
             </dependencies>
         </profile>
