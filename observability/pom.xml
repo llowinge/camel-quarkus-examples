@@ -114,6 +114,10 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-opentelemetry-exporter-otlp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
 
@@ -427,20 +431,6 @@
                 <dependency>
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-openshift</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>jaeger</id>
-            <activation>
-                <property>
-                    <name>jaeger-profile</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-opentelemetry-exporter-jaeger</artifactId>
                 </dependency>
             </dependencies>
         </profile>
