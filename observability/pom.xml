@@ -17,7 +17,8 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-quarkus-examples-observability</artifactId>
@@ -81,6 +82,12 @@
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
             <artifactId>camel-quarkus-platform-http</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.aayushatharva.brotli4j</groupId>
+                    <artifactId>native-osx-x86_64</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
@@ -220,7 +227,9 @@
                             <kt>SLASHSTAR_STYLE</kt>
                         </mapping>
                         <headerDefinitions>
-                            <headerDefinition>${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml</headerDefinition>
+                            <headerDefinition>
+                                ${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml
+                            </headerDefinition>
                         </headerDefinitions>
                     </configuration>
                 </plugin>
@@ -291,7 +300,8 @@
                             <artifactId>formatter-maven-plugin</artifactId>
                             <version>${formatter-maven-plugin.version}</version>
                             <configuration>
-                                <configFile>${maven.multiModuleProjectDirectory}/eclipse-formatter-config.xml</configFile>
+                                <configFile>${maven.multiModuleProjectDirectory}/eclipse-formatter-config.xml
+                                </configFile>
                             </configuration>
                         </plugin>
 
@@ -327,7 +337,8 @@
                             <configuration>
                                 <failIfNoTests>false</failIfNoTests>
                                 <systemProperties>
-                                    <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                                    <java.util.logging.manager>org.jboss.logmanager.LogManager
+                                    </java.util.logging.manager>
                                 </systemProperties>
                             </configuration>
                         </plugin>
@@ -373,7 +384,9 @@
                                     <kt>SLASHSTAR_STYLE</kt>
                                 </mapping>
                                 <headerDefinitions>
-                                    <headerDefinition>${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml</headerDefinition>
+                                    <headerDefinition>
+                                        ${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml
+                                    </headerDefinition>
                                 </headerDefinitions>
                             </configuration>
                         </plugin>
