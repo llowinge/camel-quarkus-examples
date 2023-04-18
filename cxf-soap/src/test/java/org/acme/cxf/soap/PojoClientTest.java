@@ -40,7 +40,7 @@ public class PojoClientTest extends BaseTest {
         ContactService cxfClient = createCXFClient();
 
         cxfClient.addContact(createContact());
-        Assertions.assertSame(1, cxfClient.getContacts().getContacts().size(), "We should have one contact.");
+        Assertions.assertSame(1, cxfClient.getContacts().size(), "We should have one contact.");
 
         Assertions.assertNotNull(cxfClient.getContact("Croway"), "We haven't found contact.");
 

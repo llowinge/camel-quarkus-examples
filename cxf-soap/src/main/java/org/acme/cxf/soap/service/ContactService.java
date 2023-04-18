@@ -16,13 +16,18 @@
  */
 package org.acme.cxf.soap.service;
 
+import java.util.List;
+
+import jakarta.jws.WebService;
+
+@WebService(name = "ContactService", serviceName = "ContactService")
 public interface ContactService {
 
     void addContact(Contact contact);
 
     Contact getContact(String name) throws NoSuchContactException;
 
-    GetContactsResponse getContacts();
+    List<Contact> getContacts();
 
     void updateContact(String name, Contact contact)
             throws NoSuchContactException;
