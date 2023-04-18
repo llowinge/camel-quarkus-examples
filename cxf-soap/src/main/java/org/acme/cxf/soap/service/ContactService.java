@@ -16,13 +16,17 @@
  */
 package org.acme.cxf.soap.service;
 
+import jakarta.jws.WebService;
+
+@WebService(name = "ContactService", serviceName = "ContactService", targetNamespace = ContactService.TARGET_NS)
 public interface ContactService {
+    public static final String TARGET_NS = "http://camel.apache.org/test/ContactService";
 
     void addContact(Contact contact);
 
     Contact getContact(String name) throws NoSuchContactException;
 
-    GetContactsResponse getContacts();
+    Contacts getContacts();
 
     void updateContact(String name, Contact contact)
             throws NoSuchContactException;

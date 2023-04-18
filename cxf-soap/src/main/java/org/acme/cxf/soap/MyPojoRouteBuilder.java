@@ -23,6 +23,7 @@ import jakarta.inject.Named;
 import org.acme.cxf.soap.service.ContactService;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.cxf.jaxws.CxfEndpoint;
+import org.apache.cxf.ext.logging.LoggingFeature;
 
 /**
  * This class demonstrate how to expose a SOAP endpoint starting from java classes
@@ -37,7 +38,10 @@ public class MyPojoRouteBuilder extends RouteBuilder {
         CxfEndpoint contactEndpoint = new CxfEndpoint();
         contactEndpoint.setServiceClass(ContactService.class);
         contactEndpoint.setAddress("/contact");
+        final LoggingFeature logging = new LoggingFeature();
+        logging.setPrettyLogging(true);
 
+        contactEndpoint.getFeatures().add(logging);
         return contactEndpoint;
     }
 

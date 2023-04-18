@@ -1,12 +1,18 @@
 package org.acme.cxf.soap;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+import jakarta.xml.ws.Service;
 import org.acme.cxf.soap.service.Address;
 import org.acme.cxf.soap.service.Contact;
 import org.acme.cxf.soap.service.ContactService;
 import org.acme.cxf.soap.service.ContactType;
 import org.acme.cxf.soap.service.NoSuchContactException;
-import org.apache.cxf.frontend.ClientProxyFactoryBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +20,14 @@ import org.junit.jupiter.api.Test;
 public class PojoClientTest extends BaseTest {
 
     protected ContactService createCXFClient() {
-        String URL = getServerUrl() + "/cxf/services/contact";
-
-        ClientProxyFactoryBean factory = new ClientProxyFactoryBean();
-        factory.setServiceClass(ContactService.class);
-        factory.setAddress(URL);
-
-        return (ContactService) factory.create();
+        try {
+            final URL serviceUrl = new URL(getServerUrl() + "/cxf/services/contact?wsdl");
+            final QName qName = new QName(ContactService.TARGET_NS, ContactService.class.getSimpleName());
+            final Service service = Service.create(serviceUrl, qName);
+            return service.getPort(ContactService.class);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     protected static Contact createContact() {
@@ -38,6 +45,13 @@ public class PojoClientTest extends BaseTest {
     @Test
     public void testBasic() throws NoSuchContactException {
         ContactService cxfClient = createCXFClient();
+
+        String servedWsdl = RestAssured.given()
+                .get("/cxf/services/contact?wsdl")
+                .then()
+                .statusCode(200)
+                .extract().body().asString();
+        System.out.println(" ====== wsdl = \n\n" + servedWsdl);
 
         cxfClient.addContact(createContact());
         Assertions.assertSame(1, cxfClient.getContacts().getContacts().size(), "We should have one contact.");

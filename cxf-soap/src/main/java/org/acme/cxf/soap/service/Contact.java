@@ -20,7 +20,16 @@ import java.util.Objects;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Contact", propOrder = {
+        "name",
+        "address",
+        "type"
+})
 public class Contact {
 
     @Size(min = 1, max = 50)

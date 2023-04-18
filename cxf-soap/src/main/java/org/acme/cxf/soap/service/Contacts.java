@@ -16,14 +16,33 @@
  */
 package org.acme.cxf.soap.service;
 
-public class ContactRequest {
-    private Contact contact;
+import java.util.Collection;
 
-    public Contact getContact() {
-        return contact;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Contacts", propOrder = {
+        "contacts"
+})
+public class Contacts {
+
+    private Collection<Contact> contacts;
+
+    public Contacts() {
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public Contacts(Collection<Contact> contacts) {
+        super();
+        this.contacts = contacts;
+    }
+
+    public Collection<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Collection<Contact> contacts) {
+        this.contacts = contacts;
     }
 }
