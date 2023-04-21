@@ -17,7 +17,15 @@
 package org.acme.cxf.soap.service;
 
 import jakarta.validation.constraints.Pattern;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Address", propOrder = {
+        "city",
+        "street"
+})
 public class Address {
 
     private String city;

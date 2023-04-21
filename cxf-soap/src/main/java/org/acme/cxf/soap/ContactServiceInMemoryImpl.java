@@ -23,7 +23,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import org.acme.cxf.soap.service.Contact;
 import org.acme.cxf.soap.service.ContactService;
-import org.acme.cxf.soap.service.GetContactsResponse;
+import org.acme.cxf.soap.service.Contacts;
 import org.acme.cxf.soap.service.NoSuchContactException;
 
 @ApplicationScoped
@@ -47,11 +47,8 @@ public class ContactServiceInMemoryImpl implements ContactService {
     }
 
     @Override
-    public GetContactsResponse getContacts() {
-        GetContactsResponse result = new GetContactsResponse();
-        result.setContacts(contacts.values());
-
-        return result;
+    public Contacts getContacts() {
+        return new Contacts(contacts.values());
     }
 
     @Override

@@ -16,6 +16,11 @@
  */
 package org.acme.cxf.soap.service;
 
+import jakarta.xml.bind.annotation.XmlEnum;
+import jakarta.xml.bind.annotation.XmlType;
+
+@XmlType(name = "ContactType")
+@XmlEnum
 public enum ContactType {
     PERSONAL, WORK, OTHER,
 }
