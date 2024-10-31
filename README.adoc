@@ -3,4 +3,69 @@
 [width="100%",cols="2",options="header"]
 |===
 | Example | Description
-| link:./file-bindy-ftp[File consumer with Bindy & FTP] | Shows how to consume CSV files, marshal & unmarshal the data and send it onwards via FTP
+| link:./artemis-elasticsearch[Artemis to ElasticSearch]
+| Shows how the message is consumed from the Apache Artemis broker using MQTT protocol, transformed, and loaded into ElasticSearch.
+
+| link:./cluster-leader-election[Leader election in Kubernetes]
+| Shows how to use Camel's master component for Kubernetes leader election.
+
+| link:./timer-log-main[Custom `main()`]
+| Shows how to start Camel from a custom `main()` method.
+
+| link:./cxf-soap[Camel Quarkus CXF SOAP example]
+| Shows how to use Camel CXF SOAP component.
+
+| link:./jdbc-datasource[Extract, Transform, and Load between DBs]
+| Shows how to extract, transform, and load between two databases.
+
+| link:./file-bindy-ftp[File consumer with Bindy & FTP]
+| Shows how to consume CSV files, marshal & unmarshal the data, and send it via FTP.
+
+| link:./health[Health]
+| Shows how to use Camel health-checks with Quarkus.
+
+| link:./http-log[HTTP with vanilla JAX-RS or Camel HTTP]
+| Shows how to create HTTP endpoints using either platform-http or RESTEasy.
+
+| link:./jms-jpa[JMS and JPA]
+| Demonstrates a Camel Quarkus application supporting JTA transactions across multiple transactional resources.
+
+| link:./jpa-idempotent[JPA idempotent repository]
+| Shows how to consume a message only once, even when delivered multiple times.
+
+| link:./jta-jpa[JTA and JPA]
+| Demonstrates JTA transactions across MySQL and a simulated XAResource.
+
+| link:./kafka[Kafka example]
+| Shows how to produce and consume messages in a Kafka topic using Strimzi Operator.
+
+| link:./kamelet-chuck-norris[Kamelet Chuck Norris]
+| Shows how to build a simple Kamelet for use in Camel applications.
+
+| link:./message-bridge[Message Bridge]
+| Demonstrates AMQ and IBM MQ clients with connection pooling and XA transactions.
+
+| link:./observability[Observability]
+| Demonstrates adding metrics, health checks, and distributed tracing support.
+
+| link:./openapi-contract-first[OpenAPI Contract First]
+| Shows how to run with Contract First OpenAPI.
+
+| link:./platform-http-keycloak[Platform HTTP security with Keycloak]
+| Shows how to secure platform HTTP with Keycloak.
+
+| link:./rest-json[REST with Jackson]
+| Demonstrates creating a REST service using Camel REST DSL and Jackson.
+
+| link:./saga[Saga and LRA]
+| Shows how to use saga and LRA patterns.
+
+| link:./timer-log[Timer to Log]
+| Uses the Camel timer component to output a Hello world message to the console.
+
+| link:./file-split-log-xml[Tokenize a CSV file]
+| Shows how to define a Camel route in XML for tokenizing a CSV file.
+
+| link:./vertx-websocket-chat[Vertx-Websocket Chat]
+| Shows how to configure a WebSocket server and interact with connected peers.                                                                                    |
+|===
