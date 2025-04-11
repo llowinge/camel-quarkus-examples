@@ -23,6 +23,8 @@ public class TimerRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("timer:greeting?delay=10000&period=10000")
+                .log("Generating request from timer")
+                .setBody(simple("Request from timer"))
                 .bean("timerCounter", "count")
                 .to("http://{{greeting-app.service.host}}:{{greeting-app.service.port}}/greeting");
     }
