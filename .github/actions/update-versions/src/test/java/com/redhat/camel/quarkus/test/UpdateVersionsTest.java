@@ -230,15 +230,13 @@ public class UpdateVersionsTest {
             e.printStackTrace(pw);
         }
         log.error("Failed", e);
-        String st = stackTrace.toString();
-        log.error("st ="+st+"=");
 
         /* Add comment */
-        st = st
-        .replace("\"", "\\\"")
-        .replace("\\", "\\\\")
-        .replace("\n", "\\n")
-        .replace("\t", "\\t");
+        String st = stackTrace.toString()
+            .replace("\"", "\\\"")
+            .replace("\\", "\\\\")
+            .replace("\n", "\\n")
+            .replace("\t", "\\t");
         if (st.length() > 65000) {
             st = st.substring(0, 65000);
         }
@@ -270,6 +268,8 @@ public class UpdateVersionsTest {
                 .patch("https://api.github.com/repos/" + ghRepository + "/issues/" + issueId)
                 .then()
                 .statusCode(200);
+
+        throw new RuntimeException(e);
     }
 
     static Map<String, String> fetchBranches(Git git, String remoteUrl, String remoteAlias, CredentialsProvider creds)
